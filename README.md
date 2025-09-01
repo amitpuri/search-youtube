@@ -1,6 +1,38 @@
+![AI Generated](https://img.shields.io/badge/AI-Generated-blueviolet?style=for-the-badge&logo=openai&logoColor=white)
+
 # Search YouTube
 
 A YouTube search application demonstrating three different implementation approaches for searching YouTube content.
+
+## ⚠️ DISCLAIMER
+
+**This code is for reference and demonstration purposes only. Please read the following important disclaimers:**
+
+### 🔍 **Code Accuracy & Reliability**
+- **AI-Generated Content**: This codebase is AI-generated and may contain inaccuracies, bugs, or incomplete implementations
+- **Reference Only**: This code is provided as a learning resource and reference implementation, not for production use
+- **No Guarantees**: The code may not work as expected and should be thoroughly tested before any use
+- **Educational Purpose**: This is intended for educational and demonstration purposes only
+
+### 💰 **Token Calculator & Cost Estimation**
+- **Indicative Data**: All token counting, cost estimation, and pricing information provided is **indicative only**
+- **May Not Be Accurate**: Token counts, costs, and pricing data may not reflect current or accurate values
+- **Provider Changes**: AI providers frequently update their pricing, models, and tokenization methods
+- **Verify Independently**: Always verify token counts and costs with official provider documentation
+- **No Financial Advice**: Cost estimates should not be used for financial planning or budgeting
+
+### 🎯 **Demo Purpose Only**
+- **Not Production Ready**: This code is not intended for production environments
+- **Learning Tool**: Use this as a learning tool to understand MCP concepts and implementations
+- **Experimental**: This is experimental code that may break or change unexpectedly
+- **No Support**: No guarantees of support, maintenance, or updates
+
+### 🔒 **Security & Privacy**
+- **API Keys**: Never use real API keys in this demo environment
+- **Test Data**: Use only test data and dummy credentials
+- **No Sensitive Information**: Do not process or store sensitive information with this code
+
+**By using this code, you acknowledge that you understand these limitations and will use it responsibly for educational purposes only.**
 
 ## 🚀 Quick Start
 
@@ -291,7 +323,7 @@ curl -X POST "http://localhost:8000/mcp" \
 
 ## 📄 License
 
-Open source - see license file for details.
+This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contributing
 
