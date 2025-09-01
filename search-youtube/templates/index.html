@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #c00;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .search-section {
+            margin-bottom: 30px;
+        }
+        .search-section h2 {
+            color: #333;
+            border-bottom: 2px solid #c00;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .result-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #c00;
+        }
+        .result-item:hover {
+            background-color: #f0f0f0;
+        }
+        .video-link {
+            color: #c00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .video-link:hover {
+            text-decoration: underline;
+        }
+        .no-results {
+            color: #666;
+            font-style: italic;
+        }
+        .search-form {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .search-input {
+            padding: 10px;
+            width: 300px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .search-button {
+            padding: 10px 20px;
+            background-color: #c00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .search-button:hover {
+            background-color: #a00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube Search Results</h1>
+        
+        <div class="search-form">
+            <form action="/" method="get">
+                <input type="text" name="q" class="search-input" placeholder="Enter search term..." value="{{ query }}">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
+
+        <div class="search-section">
+            <h2>Videos</h2>
+            {% if videos %}
+                {% for video in videos %}
+                    <div class="result-item">
+                        <a href="https://www.youtube.com/watch?v={{ video.split('(')[-1].rstrip(')') }}" 
+                           class="video-link" target="_blank">
+                            {{ video.split(' (')[0] }}
+                        </a>
+                        <br>
+                        <small>Video ID: {{ video.split('(')[-1].rstrip(')') }}</small>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-results">No videos found.</p>
+            {% endif %}
+        </div>
+
+        <div class="search-section">
+            <h2>Channels</h2>
+            {% if channels %}
+                {% for channel in channels %}
+                    <div class="result-item">
+                        <a href="https://www.youtube.com/channel/{{ channel.split('(')[-1].rstrip(')') }}" 
+                           class="video-link" target="_blank">
+                            {{ channel.split(' (')[0] }}
+                        </a>
+                        <br>
+                        <small>Channel ID: {{ channel.split('(')[-1].rstrip(')') }}</small>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-results">No channels found.</p>
+            {% endif %}
+        </div>
+
+        <div class="search-section">
+            <h2>Playlists</h2>
+            {% if playlists %}
+                {% for playlist in playlists %}
+                    <div class="result-item">
+                        <a href="https://www.youtube.com/playlist?list={{ playlist.split('(')[-1].rstrip(')') }}" 
+                           class="video-link" target="_blank">
+                            {{ playlist.split(' (')[0] }}
+                        </a>
+                        <br>
+                        <small>Playlist ID: {{ playlist.split('(')[-1].rstrip(')') }}</small>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-results">No playlists found.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
